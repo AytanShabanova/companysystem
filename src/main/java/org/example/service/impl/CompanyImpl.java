@@ -90,4 +90,8 @@ public class CompanyImpl implements CompanyInter {
       employees.stream().limit(count).sorted().forEach(employee -> System.out.println(employee) );
    return employees;
     }
+    public Company getCompanyByName(String name){
+         Company company1= companyList.stream().filter(company -> company.getName().equals(name)).findFirst().get();
+         return company1;
+    }
 }

@@ -28,14 +28,12 @@ public class EmployeeImpl implements EmployeeInter {
 
     @Override
     public Employee getEmployeeById(long id,String name) {
-        for (Employee employee:employees) {
-               if (employee.getId().equals(id)){
-                   System.out.println(employee);
-                   return employee;
 
-               }
-        }
-        return null;
+        CompanyImpl company=new CompanyImpl();
+      Company company1=  company.getCompanyByName(name);
+       Employee employee1=company1.getEmployees().stream().filter(employee -> employee.getId().equals(id)).findFirst().get();
+
+        return employee1;
 
     }
 }
